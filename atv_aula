@@ -1,0 +1,41 @@
+Quais são as medidas absolutas e quais medidas são relativas?
+	- Absolutas: cm , mm , in , pt e pc 
+	- Relativas: %, ch, dx, em
+
+Quando devo usar medidas absolutas e quando usar as relativas?
+	- Para telas visualização: em, px, %
+	- Para impressão: em, cm, mm, in, pt, pc, %
+
+Pesquise e defina a diferença entre borda (border), contorno (outline), margem (margin) e espaçamento (padding) no CSS.
+	- Border: linha em torno do elemento
+	- Outline: elemento que cortrna a borda
+	- Margin: espaço ao entorno de um elemento
+	- Padding: espaçamento entre os elementos
+
+Como é calculado a largura de um elemento?Como é calculado a altura de um elemento?
+	- max-width: define largura maxima;
+	- width: define largura
+	- max-height: define altura maxima;
+	- height: define altura;
+	- min-width: define largura minima;
+	- min-height: define altura minima;
+	
+Pesquise uma biblioteca de ícones e use alguns desses ícones na sua página HTML.
+	-https://icons.getbootstrap.com/icons/
+	
+Quais elementos são do tipo bloco (block-level), quais são do tipo em linha (inline) e qual é a diferença entre eles?
+
+	- Um elemento de nível de bloco sempre começa em uma nova linha e os navegadores adicionam automaticamente algum espaço (uma margem) antes e depois do elemento.
+	 Um elemento de nível de bloco sempre ocupa toda a largura disponível (se estende para a esquerda e para a direita o máximo possível).
+	 
+Qual a diferença entre display:none e visibility:hidden?
+	- display:none retira o elemento do layout da página. 
+	- deixa de mostrar o elemento, ou seja, ele deixa de ser visível na página mas seu espaço continua ocupado, ou seja, o layout da página não é alterado por causa disto
+	
+Qual a diferença entre os tipo de posicionamento de elementos (static, relative, fixed, absolute, sticky)?
+	- Static: position static determina que o elemento utilizará o posicionamento padrão, ou seja, atribuirá o comportamento natural na página.
+	- Relative: position relative determina que o elemento será posicionado de acordo com o fluxo natural da página.
+	- Fixed:position fixed indica que o elemento terá um valor fixo em relação ao viewport, ou seja, à área visível da tela.
+	- Absolute: position absolute indica que o elemento ficará em uma posição fixa em relação à página.
+	- Sticky:position sticky CSS tem o comportamento variado. No primeiro momento, ela funciona com a posição relativa até atingir determinado limite, que pode ser a altura da tela ou o tamanho de um container, caso ele esteja inserido em uma <div>, por exemplo.
+
