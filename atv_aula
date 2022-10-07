@@ -42,11 +42,13 @@ Qual a diferença entre os tipo de posicionamento de elementos (static, relative
 Como estilizar um link (<a>) dependendo do seu estado? (pseudo-classes).
 	- a:link, a:visited, a:hover, a:active
 	- "Seletores: pseudo classes de links"
+	- Uma pseudo-classe CSS é uma palavra-chave adicionada a seletores que especifica um estado especial do elemento selecionado.
 	
 Como mudar o estilo somente da primeira letra de cada texto? (pseudo-elementos)
 	- seletor::pseudo-elemento {
  		 propriedade: valor;
 	}
+	- Um pseudo-elemento CSS é uma palavra-chave adicionada a um seletor que permite que você estilize uma parte específica do elemento selecionado. 
 	
 Como tornar a página mais responsiva usando @media e viewport?
 	- ::first-letter seleciona a primeira letra da primeira linha de um bloco, desde que não seja precedida por outro conteúdo
