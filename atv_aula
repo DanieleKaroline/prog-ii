@@ -38,4 +38,19 @@ Qual a diferença entre os tipo de posicionamento de elementos (static, relative
 	- Fixed:position fixed indica que o elemento terá um valor fixo em relação ao viewport, ou seja, à área visível da tela.
 	- Absolute: position absolute indica que o elemento ficará em uma posição fixa em relação à página.
 	- Sticky:position sticky CSS tem o comportamento variado. No primeiro momento, ela funciona com a posição relativa até atingir determinado limite, que pode ser a altura da tela ou o tamanho de um container, caso ele esteja inserido em uma <div>, por exemplo.
-
+	
+Como estilizar um link (<a>) dependendo do seu estado? (pseudo-classes).
+	- a:link, a:visited, a:hover, a:active
+	- "Seletores: pseudo classes de links"
+	
+Como mudar o estilo somente da primeira letra de cada texto? (pseudo-elementos)
+	- seletor::pseudo-elemento {
+ 		 propriedade: valor;
+	}
+	
+Como tornar a página mais responsiva usando @media e viewport?
+	- ::first-letter seleciona a primeira letra da primeira linha de um bloco, desde que não seja precedida por outro conteúdo
+	
+É possível fazer animações somente com CSS? Quais tags ou comando são utilizados?
+	- Para criar uma sequência de animação CSS, você estiliza o elemento que deseja animar com a propriedade animation ou suas sub-propriedades.
+ 
