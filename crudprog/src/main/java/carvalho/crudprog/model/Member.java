@@ -51,6 +51,7 @@ public class Member implements Serializable {
     @NotNull
     @NotEmpty
     @Email
+    @Column(name = "email") 
     private String email;
 
     @NotNull
