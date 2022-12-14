@@ -16,6 +16,8 @@
  */
 package carvalho.DanieleK.controller;
 
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.enterprise.inject.Produces;
@@ -24,7 +26,9 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import carvalho.DanieleK.DAO.UsuarioDAO;
 import carvalho.DanieleK.model.Member;
+import carvalho.DanieleK.model.Usuario;
 import carvalho.DanieleK.service.MemberRegistration;
 
 // The @Model stereotype is a convenience mechanism to make this a request-scoped bean that has an
@@ -48,11 +52,22 @@ public class MemberController {
     public void initNewMember() {
         newMember = new Member();
     }
+    @Inject
+    private UsuarioDAO usuarioDAO;
+
+    private Usuario novoUsuario;
+    
+    private List<Usuario> listaUsuarios;
+    @PostConstruct
+    public void inicializarUsuario() {
+        novoUsuario = new Usuario();
+        listaUsuarios = usuarioDAO.findAllHQL();
+    }
 
     public void register() throws Exception {
         try {
             memberRegistration.register(newMember);
-            FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_INFO, "Registered!", "Registration successful");
+            FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_INFO, "Registrado!", "Registration successful");
             facesContext.addMessage(null, m);
             initNewMember();
         } catch (Exception e) {
@@ -80,5 +95,24 @@ public class MemberController {
         // This is the root cause message
         return errorMessage;
     }
+    public Usuario getNovoUsuario() {
+		return novoUsuario;
+	}
+
+	public void setNovoUsuario(Usuario novoUsuario) {
+		this.novoUsuario = novoUsuario;
+	}
+
+	public List<Usuario> getListaUsuarios() {
+		
+		if (listaUsuarios == null) {
+			listaUsuarios = usuarioDAO.findAllHQL();
+		}
+		return listaUsuarios;
+	}
+
+	public void setListaUsuarios(List<Usuario> listaUsuarios) {
+		this.listaUsuarios = listaUsuarios;
+	}
 
 }
