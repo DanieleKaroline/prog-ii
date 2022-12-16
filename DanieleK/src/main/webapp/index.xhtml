@@ -21,8 +21,8 @@
     xmlns:h="http://java.sun.com/jsf/html"
     template="/WEB-INF/templates/default.xhtml">
     <ui:define name="content">
-        <h1>Welcome to WildFly!</h1>
-		<h1>Daniele Karoline!</h1>
+        <h1>#{usuarioController.myname}</h1>
+
         <div>
             <p>You have successfully deployed a Java EE 7 Enterprise
                 Application.</p>
@@ -35,27 +35,30 @@
             <p>Enforces annotation-based constraints defined on the
                 model class.</p>
             <h:panelGrid columns="3" columnClasses="titleCell">
-                <h:outputLabel for="nome" value="Nome:" />
-                <h:inputText id="nome" value="#{MemberController.novoUsuario.email}" />
-                <h:message for="nome" errorClass="invalid" />
+                <h:outputLabel for="name" value="Usuario:" />
+                <h:inputText id="name" value="#{usuarioController.novoUsuario.nome}" />
+                <h:message for="name" errorClass="invalid" />
 
                 <h:outputLabel for="email" value="Email:" />
-                <h:inputText id="email" value="#{MemberController.novoUsuario.email}" />
+                <h:inputText id="email" value="#{usuarioController.novoUsuario.email}" />
                 <h:message for="email" errorClass="invalid" />
 
-				<h:outputLabel for="pass" value="Senha:" />
-                <h:inputText id="pass" value="#{MemberController.novoUsuario.email}" />
-                <h:message for="pass" errorClass="invalid" />
+				<h:outputLabel for="senha" value="Senha:" />
+                <h:inputSecret id="senha" value="#{usuarioController.novoUsuario.pass}" />
+                <h:message for="senha" errorClass="invalid" />
                 
-                <h:outputLabel for="cpf" value="CPF:" />
-                <h:inputText id="cpf" value="#{MemberController.novoUsuario.email}" />
+                
+				<h:outputLabel for="cpf" value="CPF:" />
+                <h:inputText id="cpf" value="#{usuarioController.novoUsuario.cpf}" />
                 <h:message for="cpf" errorClass="invalid" />
+  
+				
             </h:panelGrid>
 
             <p>
                 <h:panelGrid columns="2">
                     <h:commandButton id="register"
-                        action="#{memberController.register}"
+                        action="#{usuarioController.register}"
                         value="Register" styleClass="register" />
                     <h:messages styleClass="messages"
                         errorClass="invalid" infoClass="valid"
@@ -63,38 +66,31 @@
                 </h:panelGrid>
             </p>
         </h:form>
-        <h2>Members</h2>
-        <h:panelGroup rendered="#{empty members}">
-            <em>No registered members.</em>
+         
+        <h2>Usuários</h2>
+        <h:panelGroup rendered="#{empty usuarioController.listaUsuarios}">
+            <em>Sem usuários registrados</em>
         </h:panelGroup>
-        <h:dataTable var="_member" value="#{members}"
-            rendered="#{not empty members}"
+        <h:dataTable var="usuario" value="#{usuarioController.listaUsuarios}"
+            rendered="#{not empty usuarioController.listaUsuarios}"
             styleClass="simpletablestyle">
             <h:column>
                 <f:facet name="header">Id</f:facet>
-                #{_member.id}
+                #{usuario.id_us}
             </h:column>
             <h:column>
-                <f:facet name="header">Name</f:facet>
-                #{_member.name}
+                <f:facet name="header">Nome</f:facet>
+                #{usuario.nome}
             </h:column>
             <h:column>
-                <f:facet name="header">Email</f:facet>
-                #{_member.email}
+                <f:facet name="header">Senha</f:facet>
+                #{usuario.pass}
             </h:column>
             <h:column>
-                <f:facet name="header">Phone #</f:facet>
-                #{_member.phoneNumber}
+                <f:facet name="header">E-mail</f:facet>
+                #{usuario.email}
             </h:column>
-            <h:column>
-                <f:facet name="header">REST URL</f:facet>
-                <a
-                    href="#{request.contextPath}/rest/members/#{_member.id}">/rest/members/#{_member.id}</a>
-            </h:column>
-            <f:facet name="footer">
-            REST URL for all members: <a
-                    href="#{request.contextPath}/rest/members">/rest/members</a>
-            </f:facet>
-        </h:dataTable>
+       	</h:dataTable>
+        
     </ui:define>
 </ui:composition>
