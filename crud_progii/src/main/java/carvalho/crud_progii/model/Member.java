@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package carvalho.crudprog.model;
+package carvalho.crud_progii.model;
 
 import java.io.Serializable;
 
@@ -51,7 +51,6 @@ public class Member implements Serializable {
     @NotNull
     @NotEmpty
     @Email
-    @Column(name = "email") 
     private String email;
 
     @NotNull
